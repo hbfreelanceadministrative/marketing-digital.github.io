@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+	<!-- This site is optimized with the Yoast SEO plugin v19.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>¿Cómo hacer un Plan de Marketing Digital completo? [EJEMPLOS]</title><link rel="preload" as="style" href="https://escuela.marketingandweb.es/wp-content/cache/perfmatters/escuela.marketingandweb.es/fonts/2bd510ffd132.google-fonts.css" /><link rel="stylesheet" href="https://escuela.marketingandweb.es/wp-content/cache/perfmatters/escuela.marketingandweb.es/fonts/2bd510ffd132.google-fonts.css" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://escuela.marketingandweb.es/wp-content/cache/perfmatters/escuela.marketingandweb.es/fonts/2bd510ffd132.google-fonts.css" /></noscript>
+	<meta name="description" content="Te explico al detalle el paso a paso para hacer un Plan de Marketing Digital de cualquier empresa o negocio &gt;&gt;" />
+	<link rel="canonical" href="https://escuela.marketingandweb.es/que-es-un-plan-de-marketing-digital/" />
+	<meta property="og:locale" content="es_ES" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="¿Cómo hacer un Plan de Marketing Digital completo? [EJEMPLOS]" />
+	<meta property="og:description" content="Te explico al detalle el paso a paso para hacer un Plan de Marketing Digital de cualquier empresa o negocio &gt;&gt;" />
+	<meta property="og:url" content="https://escuela.marketingandweb.es/que-es-un-plan-de-marketing-digital/" />
+	<meta property="og:site_name" content="Escuela Marketing and Web" />
+	<meta property="article:published_time" content="2022-05-06T06:54:13+00:00" />
+	<meta property="article:modified_time" content="2022-06-17T06:40:53+00:00" />
+	<meta property="og:image" content="https://escuela.marketingandweb.es/wp-content/uploads/como-hacer-un-plan-de-marketing-digital.png" />
+	<meta property="og:image:width" content="719" />
+	<meta property="og:image:height" content="400" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Escrito por" />
+	<meta name="twitter:data1" content="Rubén Máñez" />
+	<meta name="twitter:label2" content="Tiempo de lectura" />
+	<meta name="twitter:data2" content="32 minutos" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://escuela.marketingandweb.es/#website","url":"https://escuela.marketingandweb.es/","name":"Escuela Marketing and Web","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://escuela.marketingandweb.es/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"es"},{"@type":"ImageObject","inLanguage":"es","@id":"https://escuela.marketingandweb.es/que-es-un-plan-de-marketing-digital/#primaryimage","url":"https://escuela.marketingandweb.es/wp-content/uploads/como-hacer-un-plan-de-marketing-digital.png","contentUrl":"https://escuela.marketingandweb.es/wp-content/uploads/como-hacer-un-plan-de-marketing-digital.png","width":719,"height":400,"caption":"como elaborar un plan de marketing digital"},{"@type":"WebPage","@id":"https://escuela.marketingandweb.es/que-es-un-plan-de-marketing-digital/#webpage","url":"https://escuela.marketingandweb.es/que-es-un-plan-de-marketing-digital/","name":"¿Cómo hacer un Plan de Marketing Digital completo? [EJEMPLOS]","isPartOf":{"@id":"https://escuela.marketingandweb.es/#website"},"primaryImageOfPage":{"@id":"https://escuela.marketingandweb.es/que-es-un-plan-de-marketing-digital/#primaryimage"},"datePublished":"2022-05-06T06:54:13+00:00","dateModified":"2022-06-17T06:40:53+00:00","author":{"@id":"https://escuela.marketingandweb.es/#/schema/person/2d6048eb2bdff1a4db16514a8a0e24af"},"description":"Te explico al detalle el paso a paso para hacer un Plan de Marketing Digital de cualquier empresa o negocio >>","breadcrumb":{"@id":"https://escuela.marketingandweb.es/que-es-un-plan-de-marketing-digital/#breadcrumb"},"inLanguage":"es","potentialAction":[{"@type":"ReadAction","target":["https://escuela.marketingandweb.es/que-es-un-plan-de-marketing-digital/"]}]},{"@type":"BreadcrumbList","@id":"https://escuela.marketingandweb.es/que-es-un-plan-de-marketing-digital/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Portada","item":"https://escuela.marketingandweb.es/"},{"@type":"ListItem","position":2,"name":"Marketing Digital","item":"https://escuela.marketingandweb.es/marketing-digital/"},{"@type":"ListItem","position":3,"name":"Plan de Marketing Digital: Qué es y cómo elaborar un plan de marketing paso a paso [Ejemplos]"}]},{"@type":"Person","@id":"https://escuela.marketingandweb.es/#/schema/person/2d6048eb2bdff1a4db16514a8a0e24af","name":"Rubén Máñez","image":{"@type":"ImageObject","inLanguage":"es","@id":"https://escuela.marketingandweb.es/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/0a7c969f0b9e234d39bf594100da13cc?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/0a7c969f0b9e234d39bf594100da13cc?s=96&d=mm&r=g","caption":"Rubén Máñez"},"description":"Consultor de Marketing Digital especializado en Embudos de Venta y Facebook Ads. Coordinador Académico de la Escuela Marketing and Web y blogger en rubenmanez.com","sameAs":["http://rubenmanez.com"],"url":"https://escuela.marketingandweb.es/author/rubenmanez/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<script type="rocketlazyloadscript" data-rocket-type='application/javascript'>console.log('PixelYourSite Free version 9.1.1');</script>
+
+<link rel="alternate" type="application/rss+xml" title="Escuela Marketing and Web &raquo; Feed" href="https://escuela.marketingandweb.es/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Escuela Marketing and Web &raquo; Feed de los comentarios" href="https://escuela.marketingandweb.es/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Escuela Marketing and Web &raquo; Comentario Plan de Marketing Digital: Qué es y cómo elaborar un plan de marketing paso a paso [Ejemplos] del feed" href="https://escuela.marketingandweb.es/que-es-un-plan-de-marketing-digital/feed/" />
+<link data-minify="1" rel="stylesheet" type="text/css" href="https://escuela.marketingandweb.es/wp-content/cache/min/1/hde0aih.css?ver=1669186930"><style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://escuela.marketingandweb.es/wp-includes/css/dist/block-library/style.min.css?ver=6.0' type='text/css' media='all' />
+<style id='joinchat-button-style-inline-css' type='text/css'>
+.wp-block-joinchat-button{border:none!important;text-align:center}.wp-block-joinchat-button figure{display:table;margin:0 auto;padding:0}.wp-block-joinchat-button figcaption{font:normal normal 400 .6em/2em var(--wp--preset--font-family--system-font,sans-serif);margin:0;padding:0}.wp-block-joinchat-button .joinchat-button__qr{background-color:#fff;border:6px solid #25d366;border-radius:30px;box-sizing:content-box;display:block;height:200px;margin:auto;overflow:hidden;padding:10px;width:200px}.wp-block-joinchat-button .joinchat-button__qr canvas,.wp-block-joinchat-button .joinchat-button__qr img{display:block;margin:auto}.wp-block-joinchat-button .joinchat-button__link{align-items:center;background-color:#25d366;border:6px solid #25d366;border-radius:30px;display:inline-flex;flex-flow:row nowrap;justify-content:center;line-height:1.25em;margin:0 auto;text-decoration:none}.wp-block-joinchat-button .joinchat-button__link:before{background:transparent var(--joinchat-ico) no-repeat center;background-size:100%;content:"";display:block;height:1.5em;margin:-.75em .75em -.75em 0;width:1.5em}.wp-block-joinchat-button figure+.joinchat-button__link{margin-top:10px}@media (orientation:landscape)and (min-height:481px),(orientation:portrait)and (min-width:481px){.wp-block-joinchat-button.joinchat-button--qr-only figure+.joinchat-button__link{display:none}}@media (max-width:480px),(orientation:landscape)and (max-height:480px){.wp-block-joinchat-button figure{display:none}}
+
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='cmplz-general-css'  href='https://escuela.marketingandweb.es/wp-content/plugins/complianz-gdpr/assets/css/cookieblocker.min.css?ver=6.2.0' type='text/css' media='all' />
+<link rel='stylesheet' id='hello-elementor-css'  href='https://escuela.marketingandweb.es/wp-content/themes/hello-elementor/style.min.css?ver=2.5.0' type='text/css' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css'  href='https://escuela.marketingandweb.es/wp-content/themes/hello-elementor/theme.min.css?ver=2.5.0' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-css'  href='https://escuela.marketingandweb.es/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=1669186931' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css'  href='https://escuela.marketingandweb.es/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.6.6' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-10-css'  href='https://escuela.marketingandweb.es/wp-content/uploads/elementor/css/post-10.css?ver=1669112933' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-pro-css'  href='https://escuela.marketingandweb.es/wp-content/plugins/elementor-pro/assets/css/frontend-lite.min.css?ver=3.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-global-css'  href='https://escuela.marketingandweb.es/wp-content/uploads/elementor/css/global.css?ver=1669112933' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-299-css'  href='https://escuela.marketingandweb.es/wp-content/uploads/elementor/css/post-299.css?ver=1669113052' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-210-css'  href='https://escuela.marketingandweb.es/wp-content/uploads/elementor/css/post-210.css?ver=1669112988' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-339-css'  href='https://escuela.marketingandweb.es/wp-content/uploads/elementor/css/post-339.css?ver=1669113053' type='text/css' media='all' />
+<link rel='stylesheet' id='elementor-post-28385-css'  href='https://escuela.marketingandweb.es/wp-content/uploads/elementor/css/post-28385.css?ver=1669190022' type='text/css' media='all' />
+
+<link rel='stylesheet' id='elementor-icons-shared-0-css'  href='https://escuela.marketingandweb.es/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-fa-solid-css'  href='https://escuela.marketingandweb.es/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=1669186931' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-fa-brands-css'  href='https://escuela.marketingandweb.es/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=1669186931' type='text/css' media='all' />
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js' defer></script>
+<script data-service="facebook" data-category="marketing" type="text/plain" src='https://escuela.marketingandweb.es/wp-content/plugins/pixelyoursite/dist/scripts/jquery.bind-first-0.2.3.min.js?ver=6.0' id='jquery-bind-first-js' defer></script>
+<script data-service="facebook" data-category="marketing" type="text/plain" src='https://escuela.marketingandweb.es/wp-content/plugins/pixelyoursite/dist/scripts/js.cookie-2.1.3.min.js?ver=2.1.3' id='js-cookie-js' defer></script>
+<script type='text/javascript' id='pys-js-extra'>
+/* <![CDATA[ */
+var pysOptions = {"staticEvents":{"facebook":{"init_event":[{"delay":0,"type":"static","name":"PageView","pixelIds":["280006306592235"],"eventID":"04b268d3-7588-4d48-bb69-14dd0a10adb6","params":{"post_category":"Marketing Digital","page_title":"Plan de Marketing Digital: Qu\u00e9 es y c\u00f3mo elaborar un plan de marketing paso a paso [Ejemplos]","post_type":"post","post_id":7212,"plugin":"PixelYourSite","user_role":"guest","event_url":"escuela.marketingandweb.es\/que-es-un-plan-de-marketing-digital\/"},"e_id":"init_event","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}]}},"dynamicEvents":{"automatic_event_form":{"facebook":{"delay":0,"type":"dyn","name":"Form","pixelIds":["280006306592235"],"eventID":"2e98f0e8-d46d-4109-8ac8-b6b1ae99f1cb","params":{"page_title":"Plan de Marketing Digital: Qu\u00e9 es y c\u00f3mo elaborar un plan de marketing paso a paso [Ejemplos]","post_type":"post","post_id":7212,"plugin":"PixelYourSite","user_role":"guest","event_url":"escuela.marketingandweb.es\/que-es-un-plan-de-marketing-digital\/"},"e_id":"automatic_event_form","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}},"automatic_event_download":{"facebook":{"delay":0,"type":"dyn","name":"Download","extensions":["","doc","exe","js","pdf","ppt","tgz","zip","xls"],"pixelIds":["280006306592235"],"eventID":"d2bb1b9b-0699-4fe8-96c2-be513712ce3b","params":{"page_title":"Plan de Marketing Digital: Qu\u00e9 es y c\u00f3mo elaborar un plan de marketing paso a paso [Ejemplos]","post_type":"post","post_id":7212,"plugin":"PixelYourSite","user_role":"guest","event_url":"escuela.marketingandweb.es\/que-es-un-plan-de-marketing-digital\/"},"e_id":"automatic_event_download","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}},"automatic_event_comment":{"facebook":{"delay":0,"type":"dyn","name":"Comment","pixelIds":["280006306592235"],"eventID":"400edf07-0be9-4628-8dac-d5431ee0430e","params":{"page_title":"Plan de Marketing Digital: Qu\u00e9 es y c\u00f3mo elaborar un plan de marketing paso a paso [Ejemplos]","post_type":"post","post_id":7212,"plugin":"PixelYourSite","user_role":"guest","event_url":"escuela.marketingandweb.es\/que-es-un-plan-de-marketing-digital\/"},"e_id":"automatic_event_comment","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}}},"triggerEvents":[],"triggerEventTypes":[],"facebook":{"pixelIds":["280006306592235"],"advancedMatching":[],"removeMetadata":false,"contentParams":{"post_type":"post","post_id":7212,"content_name":"Plan de Marketing Digital: Qu\u00e9 es y c\u00f3mo elaborar un plan de marketing paso a paso [Ejemplos]","categories":"Marketing Digital","tags":""},"commentEventEnabled":true,"wooVariableAsSimple":false,"downloadEnabled":true,"formEventEnabled":true,"ajaxForServerEvent":true,"serverApiEnabled":true,"wooCRSendFromServer":false},"debug":"","siteUrl":"https:\/\/escuela.marketingandweb.es","ajaxUrl":"https:\/\/escuela.marketingandweb.es\/wp-admin\/admin-ajax.php","enable_remove_download_url_param":"1","gdpr":{"ajax_enabled":false,"all_disabled_by_api":false,"facebook_disabled_by_api":false,"analytics_disabled_by_api":false,"google_ads_disabled_by_api":false,"pinterest_disabled_by_api":false,"bing_disabled_by_api":false,"facebook_prior_consent_enabled":true,"analytics_prior_consent_enabled":true,"google_ads_prior_consent_enabled":null,"pinterest_prior_consent_enabled":true,"bing_prior_consent_enabled":true,"cookiebot_integration_enabled":false,"cookiebot_facebook_consent_category":"marketing","cookiebot_analytics_consent_category":"statistics","cookiebot_google_ads_consent_category":null,"cookiebot_pinterest_consent_category":"marketing","cookiebot_bing_consent_category":"marketing","consent_magic_integration_enabled":false,"real_cookie_banner_integration_enabled":false,"cookie_notice_integration_enabled":false,"cookie_law_info_integration_enabled":false},"woo":{"enabled":false},"edd":{"enabled":false}};
+/* ]]> */
+</script>
+<script data-minify="1" data-service="facebook" data-category="marketing" type="text/plain" src='https://escuela.marketingandweb.es/wp-content/cache/min/1/wp-content/plugins/pixelyoursite/dist/scripts/public.js?ver=1669186931' id='pys-js' defer></script>
+<meta name="cdp-version" content="1.3.0" /><!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="text/plain" data-service="google-analytics" data-category="statistics" async src="https://www.googletagmanager.com/gtag/js?id=UA-97341711-1"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-97341711-1');
+</script>
+
+<meta name="google-site-verification" content="yh-EIGw7P5zv4xAJMYBfN9t1SnwVWAMvd1tbRhJFbzo" />
+
+<meta name="facebook-domain-verification" content="1c8vlnxxsszyexdyvxj5dxtd56alyy" />
+
+<script type="rocketlazyloadscript">
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+
+  ttq.load('CC91OQRC77UE82V3E630');
+  ttq.page();
+}(window, document, 'ttq');
+</script><style>.cmplz-hidden{display:none!important;}</style>
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<!-- GTM Container placement set to footer -->
+<script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">
+	var dataLayer_content = {"pagePostType":"post","pagePostType2":"single-post","pageCategory":["marketing-digital"],"pagePostAuthor":"Rubén Máñez"};
+	dataLayer.push( dataLayer_content );
+</script>
+<script type="rocketlazyloadscript" data-cfasync="false">
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.'+'js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W32MQZ2');
+</script>
+<!-- End Google Tag Manager -->
+<!-- End Google Tag Manager for WordPress by gtm4wp.com --><script type="rocketlazyloadscript">
+
+document.addEventListener('DOMContentLoaded', function() {
+jQuery(function($){
+$(document).scroll(function() {
+var y = $(this).scrollTop();
+if (y > 830 && $(window).scrollTop() + $(window).height() < $(document).height() - 100) {
+$('#btnsection').addClass('stickybar')
+} else {
+$('#btnsection').removeClass('stickybar')
+}
+});
+$('#btnsticky').click(function(){
+$('.single_add_to_cart_button').click();
+$('html, body').animate({
+scrollTop: $('.product_title').offset().top
+}, 'slow');
+});
+});
+});
+</script>
+
+<style>
+#btnsection{
+position: fixed;
+bottom: 0;
+width: 100vw;
+z-index: 98;
+-webkit-transition: transform 0.34s ease;
+transition : transform 0.34s ease;
+transform: translateY(133px); /*adjust this value to the height of your addcartsection*/
+}
+.stickybar{
+transform: translateY(0px)!important;
+}
+</style>
+<link rel="icon" href="https://escuela.marketingandweb.es/wp-content/uploads/fav-escuela-marketing-and-web.png" sizes="32x32" />
+<link rel="icon" href="https://escuela.marketingandweb.es/wp-content/uploads/fav-escuela-marketing-and-web.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://escuela.marketingandweb.es/wp-content/uploads/fav-escuela-marketing-and-web.png" />
+<meta name="msapplication-TileImage" content="https://escuela.marketingandweb.es/wp-content/uploads/fav-escuela-marketing-and-web.png" />
+		<style type="text/css" id="wp-custom-css">
+			.course_timeline h4, .course_timeline li a {
+    color: #FFFFFF !important;
+}
+
+/*BOTÓN GRAVITY FORMS*/
+.page-id-16651 .page-id-16684 .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit], .gform_page_footer input[type=submit] {
+    font-size: 1em;
+    width: auto;
+    margin: 0 16px 0 0;
+    background: #FF840B;
+    color: #ffffff;
+    border: 2px solid;
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.25);
+}
+
+.page-id-16651  .page-id-16684 .gform_footer:hover input.button:hover, .gform_wrapper .gform_footer:hover input[type=submit]:hover, .gform_page_footer:hover input[type=submit]:hover {
+    font-size: 1em;
+    width: auto;
+    margin: 0 16px 0 0;
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid;
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.25);
+}
+
+/*TITULO CAJAS*/
+.titulo-naranja {
+    font-family: 'Montserrat',sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 15px;
+    background: #ff840b;
+    padding: 5px 5px 5px 10px;
+    color: #fff;
+    border-bottom: 5px solid #fff;
+}
+
+/*CAJA LINKS*/
+.caja-links {
+    padding: 5px;
+    border: 2px solid#f5f5f5;
+}
+
+/*FONDO CAJA*/
+
+.fondo-caja {
+    background: #f5f5f5;
+}
+
+/*CAJA NEGRA*/
+.borde-negro {
+    border: 1px solid #000;
+    padding: 20px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.caja-azul {
+    border: 2px solid #37aac8!important;
+    border-radius: 15px;
+    padding: 20px!important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript></head>
+<body data-cmplz=1 class="post-template-default single single-post postid-7212 single-format-standard wp-custom-logo elementor-default elementor-kit-10 elementor-page-339">
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0.49803921568627" /><feFuncG type="table" tableValues="0 0.49803921568627" /><feFuncB type="table" tableValues="0 0.49803921568627" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.27843137254902" /><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0" /><feFuncG type="table" tableValues="0 0.64705882352941" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.78039215686275 1" /><feFuncG type="table" tableValues="0 0.94901960784314" /><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.44705882352941 0.4" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.098039215686275 1" /><feFuncG type="table" tableValues="0 0.66274509803922" /><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg>		<header data-elementor-type="header" data-elementor-id="299" class="elementor elementor-299 elementor-location-header">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-596791d1 elementor-section-height-min-height elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="596791d1" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0}">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7699e71b" data-id="7699e71b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5818c939 elementor-widget elementor-widget-image" data-id="5818c939" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.6 - 08-06-2022 */
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>													<a href="https://escuela.marketingandweb.es">
+							<picture class="attachment-full size-full">
+<source type="image/webp" data-lazy-srcset="https://escuela.marketingandweb.es/wp-content/uploads/escuela-marketing-and-web-valencia.png.webp" srcset="data:image/svg+xml,%3Csvg%20xmlns=&#039;http://www.w3.org/2000/svg&#039;%20viewBox=&#039;0%200%20240%20106&#039;%3E%3C/svg%3E"/>
+
+</picture>
+<noscript><picture class="attachment-full size-full">
+<source type="image/webp" srcset="https://escuela.marketingandweb.es/wp-content/uploads/escuela-marketing-and-web-valencia.png.webp"/>
+<img width="240" height="106" src="https://escuela.marketingandweb.es/wp-content/uploads/escuela-marketing-and-web-valencia.png" alt="Escuela Marketing and Web"/>
+</picture>
+</noscript>								</a>
+															</div>
+				</div>
+					</div>
+		</div>
+				
+		</div>
+				
+		</section>
+				
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-0932587" data-id="0932587" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5bed6c1 elementor-nav-menu__align-right elementor-widget__width-auto elementor-nav-menu--stretch elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="5bed6c1" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				
+				</div>
+					</div>
+		</div>
+				
+						</header>
+				<div data-elementor-type="single-post" data-elementor-id="339" class="elementor elementor-339 elementor-location-single post-7212 post type-post status-publish format-standard has-post-thumbnail hentry category-marketing-digital">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-6c79341 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="6c79341" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-557eb9ef" data-id="557eb9ef" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-465cbb97 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="465cbb97" data-element_type="widget" data-widget_type="theme-post-title.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.6.6 - 08-06-2022 */
+.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h1 class="elementor-heading-title elementor-size-default">Plan de Marketing Digital: Qué es y cómo elaborar un plan de marketing paso a paso [Ejemplos]</h1>		</div>
+				</div>
+				<div class="elementor-element elementor-element-d35db41 elementor-align-center elementor-widget elementor-widget-post-info" data-id="d35db41" data-element_type="widget" data-widget_type="post-info.default">
+				<div class="elementor-widget-container">
+			<link rel="stylesheet" href="https://escuela.marketingandweb.es/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css"><link rel="stylesheet" href="https://escuela.marketingandweb.es/wp-content/plugins/elementor-pro/assets/css/widget-theme-elements.min.css">		<ul class="elementor-inline-items elementor-icon-list-items elementor-post-info">
+								<li class="elementor-icon-list-item elementor-repeater-item-fda1c46 elementor-inline-item" itemprop="datePublished">
+													<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-date">
+										06/05/2017					</span>
+								</li>
+				<li class="elementor-icon-list-item elementor-repeater-item-1d0f359 elementor-inline-item" itemprop="author">
+													<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-author">
+										Alvaro Leonardo Hernández Blanco					</span>
+								</li>
+				</ul>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-94a76ee elementor-align-center dc-has-condition dc-condition-equal elementor-widget elementor-widget-breadcrumbs" data-id="94a76ee" data-element_type="widget" data-widget_type="breadcrumbs.default">
+				<div class="elementor-widget-container">
+                    <p id="breadcrumbs"> <b><FONT COLOR="yellow">Marketing Digital</FONT></b> » <span class="breadcrumb_last" aria-current="page"><b><FONT COLOR="red">Plan de Marketing Digital:</FONT>
+</b>Qué es y cómo elaborar un plan de marketing paso a paso [Ejemplos] Actualizado al <FONT COLOR="orange">02/12/2022 </FONT></span></p>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+                    
+                    <section class="elementor-section elementor-top-section elementor-element elementor-element-bddd29e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="bddd29e" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-54a4299c" data-id="54a4299c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-e469f03 elementor-widget elementor-widget-theme-post-content" data-id="e469f03" data-element_type="widget" data-widget_type="theme-post-content.default">
+				<div class="elementor-widget-container">  
+                  
+			<p class="elementor-heading-title elementor-size-default"><b>Todo esto es lo que vas a aprender en el Master de Marketing Digital...</b> Los 122 objetivos elementales para llevar al éxito cualquier empresa en el mundo...</p>		</div>
+                    
+                    <p>&nbsp;</p>
+                   
+				
+					</div>
+		</div>
+							</div>
+		</div>
+                            </section>
+                    
+                    <div>
+                    <img src="images/diccionariomd1.jpg"  width="100%"
+     height="100%"/>
+                    
+                    </div>
+                    
+                    
+                    <div>
+                    <img src="images/croquis1.jpg"  width="100%"
+     height="100%"/>
+                    
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                  <section class="elementor-section elementor-top-section elementor-element elementor-element-bddd29e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="bddd29e" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-54a4299c" data-id="54a4299c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-e469f03 elementor-widget elementor-widget-theme-post-content" data-id="e469f03" data-element_type="widget" data-widget_type="theme-post-content.default">
+				<div class="elementor-widget-container">  
+                  
+			<p class="elementor-heading-title elementor-size-default">¿Sabes qué tienen en <b>común el 95% de las 
+empresas</b> y pequeños negocios?</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-86438f8 elementor-widget elementor-widget-text-editor" data-id="86438f8" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Tienen pensado incrementar su presupuesto de marketing en el próximo año.</p><p>Y no me extraña.</p><p>Vivimos en un mundo hiperconectado.</p><p>Entramos en las redes sociales a todas horas, abrimos emails a diario, vemos anuncios en Facebook, Instagram o LinkedIn constantemente, tenemos un problema y encontramos la solución en Google al instante, seguimos a influencers…</p><p>Esto solo significa una cosa.</p><p>Estamos en la época en la que más oportunidades existen a día de hoy.</p><p>Pero también hay un problema.</p><p>Cada vez hay más competencia, estamos más expuestos a distracciones y es más difícil conseguir la atención de las personas.</p><p>Y la atención en ventas y en marketing lo es todo.</p><p>Aquí es donde entran en juego los profesionales digitales.</p><p>Porque cualquier empresa, negocio o emprendedor necesita de profesionales que les ayuden a ser más visibles, consigan más conversiones y aumenten sus ventas.</p><p>Por eso las profesiones digitales tienen tanta demanda y todavía la tendrán aún más en el futuro.</p>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section> 
+                    
+                    
+                    
+                    
+                    
+                    
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-bddd29e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="bddd29e" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-54a4299c" data-id="54a4299c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-e469f03 elementor-widget elementor-widget-theme-post-content" data-id="e469f03" data-element_type="widget" data-widget_type="theme-post-content.default">
+				<div class="elementor-widget-container">
+			<p>Si quieres tener presencia en internet tienes que tener un plan de marketing digital que te guíe en todo momento.</p>
+<p><strong>Mira, son muchos los proyectos que fracasan en Internet</strong> porque piensan que con tener una web, crear perfiles en redes y enviar dos o tres newsletters con códigos de descuento, ya está todo hecho.</p>
+<p>Y no es así.</p>
+<p>En este artículo te darás cuenta del trabajo que hay detrás para que un negocio sea rentable online.</p>
+<p>Voy a explicarte paso por paso<strong> cómo hacer el plan de marketing digital de una empresa</strong>, negocio o para cualquier proyecto, para que tengas claras las acciones que deberás llevar a cabo si buscas tener presencia y vender online.</p>
+
+<h2><strong>¿Qué es un Plan de Marketing Digital?</strong></h2>
+<p>Pero antes de ver cómo elaborar un plan de marketing digital vamos a aclarar su significado.</p>
+<p>Un plan de marketing online es como <strong>una hoja de ruta con las acciones </strong>que te permitirán conseguir tus objetivos de negocio a nivel online.</p>
+<p>Ventas, visibilidad, crecimiento de la marca, creación de una comunidad&#8230;</p>
+<div class="su-note"  style="border-color:#c7d3df;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;"><div class="su-note-inner su-u-clearfix su-u-trim" style="background-color:#E1EDF9;border-color:#ffffff;color:#333333;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;">El <b>plan de marketing online es un documento</b> donde se detalla el modelo de negocio y todas las estrategias y acciones que se van a llevar a cabo para alcanzar los objetivos de la empresa, en base a un presupuesto fijado.</div></div>
+<p>La extensión del documento dependerá del grado de implicación que se tenga con el proyecto, pero debe de incluir un <b><FONT COLOR="red">resumen ejecutivo</FONT></b> que tendrá una extensión de 2 hojas, en el que se resumirán los elementos más importantes del plan de marketing digital.</p>
+<p>&nbsp;</p>
+<h2><strong>Cómo elaborar un plan de marketing digital</strong></h2>
+<p>La estructura de un plan de marketing se compone de <b>6 etapas</b>.</p>
+<p>Estas etapas son sucesivas, es decir, que para poder pasar de una a otra, es necesario haber desarrollado la anterior.</p>
+<p>➡️ La <b>primera etapa</b> está compuesta por la fase de análisis, y en ella se establecerán las fases del proyecto.</p>
+<p>Se estudiará el mercado, se analizará la competencia online, se elaborará un análisis DAFO, se definirá el público objetivo y se determinarán los recursos necesarios.</p>
+<p>➡️ En la <b>segunda etapa</b> se determinarán los objetivos de marketing y los canales que se utilizarán para llevar a cabo las acciones posteriores.</p>
+<p>➡️ En la <b>tercera etapa</b> se definirá y desarrollarán las <b><FONT COLOR="red">estrategias de marketing digital.</FONT>
+</b></p>
+<p>➡️ Durante la <b>cuarta etapa</b> se creará el plan de acción de esas estrategias con un timing y un diagrama de Gantt, calendarizando las acciones y sus tiempos.</p>
+<p>➡️ En la <b>quinta etapa</b> se analizarán los resultados obtenidos definiendo las métricas y KPIs del proyecto.</p>
+<p>➡️ Y finalmente, en la <strong>sexta etapa</strong> se creará el presupuesto para desarrollar todo el proyecto.</p>
+<p>&nbsp;</p>
+<h2><strong>Elaborando un Plan de Marketing Digital paso a paso</strong></h2>
+<p>Vamos a ver una por una todas estas etapas:</p>
+<p>&nbsp;</p>
+<h3><b>✅ Etapa 1 del plan de marketing: Análisis</b></h3>
+<p><span style="font-weight: 400;">Esta fase nos servirá para determinar <strong>e</strong></span><b>n qué situación se encuentra el proyecto</b><span style="font-weight: 400;"> y determinar posibles puntos de mejora.</span></p>
+<p><span style="font-weight: 400;">Es donde más suelen fallar los emprendedores, por lo que te aconsejo leer con atención.</span></p>
+<p>&nbsp;</p>
+<h4><strong><img class="size-full wp-image-15633 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" alt="Modelo de Negocio" width="100" height="100" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/1-modelo-de-negocio-1.png" /><noscript><img class="size-full wp-image-15633 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/1-modelo-de-negocio-1.png" alt="Modelo de Negocio" width="100" height="100" /></noscript>1) Modelo de Negocio del Proyecto</strong></h4>
+<p>El primer paso (y el que se suele obviar la mayoría de veces) es tener claro el <strong>modelo de negocio del proyecto</strong>.</p>
+<p>Y para eso tienes que haber definido <strong>cuáles serán tus vías de ingresos</strong>.</p>
+<p>Piensa que toda la estrategia que vayas a realizar tiene que estar orientada a unos fines monetarios, y estos objetivos están directamente vinculados con los productos y/o servicios que ofrezcamos.</p>
+<p>Por lo que si todavía no conoces cuáles serán las fuentes de ingresos,<strong> te recomiendo que leas estos dos artículos</strong> donde te explico <b><FONT COLOR="red">cómo hacer tu plan de negocio</FONT>
+    </b> y <b><FONT COLOR="red">cómo definir tu modelo Canvas</FONT>.</b></p>
+<p>Teniendo claros estos puntos, arrancamos con el plan de marketing digital.</p>
+<p>&nbsp;</p>
+<h4><strong><img class="size-full wp-image-15632 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" alt="Análisis interno y externo" width="100" height="100" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/2.analisis-interno-1.png" /><noscript><img class="size-full wp-image-15632 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/2.analisis-interno-1.png" alt="Análisis interno y externo" width="100" height="100" /></noscript>2) Análisis Interno y Externo del proyecto</strong></h4>
+<p>Este punto es fundamental y donde se cometen más errores al hacer el plan de marketing.</p>
+<p>Ya sea por falta de recursos o por desconocimiento, no se le dedica el tiempo que realmente necesita.</p>
+<div class="su-note"  style="border-color:#c7d3df;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;"><div class="su-note-inner su-u-clearfix su-u-trim" style="background-color:#E1EDF9;border-color:#ffffff;color:#333333;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;">Haciendo una <strong>auditoría de marketing digital</strong> de nuestro proyecto, podremos conocer <strong>en qué situación se encuentra</strong> en comparación con la competencia.</div></div>
+<p>Nos permitirá conocer su propuesta de valor y compararla con la nuestra, para plasmar todos estos datos en un <b><FONT COLOR="red">análisis DAFO,</FONT></b> el cual nos servirá para definir las estrategias de marketing digital posteriores.</p>
+<p><span style="font-weight: 400;">En esta <strong>auditoría interna y externa</strong> deberemos analizar los siguientes puntos:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Análisis de la página web propia y de la competencia</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Análisis SEO página web</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Análisis de la estrategia de contenidos</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Análisis de la competencia en Google Adwords</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Análisis de las estrategias de marketing en redes sociales</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Análisis de la estrategia de email marketing</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Análisis de la reputación online</span></li>
+</ul>
+<p><span style="font-weight: 400;">Vamos a verlos punto por punto.</span></p>
+<p>&nbsp;</p>
+<p><b><img class="size-full wp-image-15649 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3C/svg%3E" alt="Análisis Página Web" width="64" height="64" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-pagina-web-1.png" /><noscript><img class="size-full wp-image-15649 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-pagina-web-1.png" alt="Análisis Página Web" width="64" height="64" /></noscript> A) Análisis de la página web o blog </b></p>
+<p><span style="font-weight: 400;">El primer paso es hacer una </span><b>análisis de la web o blog</b><span style="font-weight: 400;"> tanto del proyecto como de la competencia.</span></p>
+<p><span style="font-weight: 400;">¿Por qué empezar por aquí?</span></p>
+<p><span style="font-weight: 400;">Piensa, ¿de qué sirve crear una estrategia de marketing para conseguir visibilidad si la página es un churro y </span><span style="font-weight: 400;">no va a conseguir convertir las visitas en ventas?</span></p>
+<p><span style="font-weight: 400;">Por lo tanto, lo primero que deberemos hacer es analizar nuestro propio proyecto y encontrar puntos de fuga que podamos optimizar.</span></p>
+<p><span style="font-weight: 400;">Es importante <strong>analizar los siguientes datos:</strong></span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">¿Cuál es la propuesta de valor de cada proyecto?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">La página Home y la de la competencia.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Las páginas principales de servicios y las de la competencia.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">¿Cómo son los textos copywriting que utilizan?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">La usabilidad de cada proyecto ¿a cuántos clics están las páginas principales?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">¿Tienen visibles las redes sociales?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">¿Están optimizadas las categorías?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">¿Cómo funciona el proceso de compra?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">¿Cómo consiguen suscriptores?</span></li>
+</ul>
+<p><span style="font-weight: 400;">Tras extraer estos datos de la competencia, pasarmos a<strong> analizar los siguientes en nuestro proyecto</strong>:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">¿Cuántas visitas tenemos? ¿De qué canales? ¿De qué zona geográfica? </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">¿Cuál es la calidad de las visitas?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">¿Visitan las páginas de servicios? ¿cuál es el punto de fuga?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">¿Cómo funciona el proceso de registro y compra?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">¿En qué paso se producen más salidas?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">¿Cuál es el valor medio de las transacciones?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">¿Qué canales convierten más?</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">¿Qué tipo de contenido convierte mejor?</span></li>
+</ul>
+<p><span style="font-weight: 400;">Dependiendo del proyecto deberás de centrarte más en una serie de datos que en otros, pero aquí tienes una buena base para comenzar.</span></p>
+<p>&nbsp;</p>
+<p><strong><img class="size-full wp-image-15650 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3C/svg%3E" alt="Análisis SEO" width="64" height="64" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-seo-1.png" /><noscript><img class="size-full wp-image-15650 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-seo-1.png" alt="Análisis SEO" width="64" height="64" /></noscript>B) Análisis SEO página web</strong></p>
+<p><span style="font-weight: 400;">El segundo paso es hacer un </span><b>análisis SEO de la página web</b><span style="font-weight: 400;">, tanto de nuestro propio proyecto como de la competencia para saber si la </span><b>estrategia </b><span style="font-weight: 400;">está funcionando o no.</span></p>
+<p><span style="font-weight: 400;">Aquí debemos de extraer datos como:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué porcentaje de visitas son orgánicas.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué páginas reciben más tráfico orgánico.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuál es la calidad de las visitas orgánicas.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuál es la conversión del tráfico orgánico.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué palabras clave están consiguiendo mayor conversión.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué estrategia de enlazado interno y externo se está llevando a cabo.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué tipo de anchor text.</span></li>
+</ul>
+<p><span style="font-weight: 400;">Para hacer la <b><FONT COLOR="red">auditoría SEO</FONT></b> de un proyecto a mi siempre me gusta dividirlo en cuatro partes:</span></p>
+
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Análisis de la visibilidad online.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Análisis de los errores SEO.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Análisis de las palabras clave.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Análisis de los backlinks.</span></li>
+</ul>
+<p><span style="font-weight: 400;">Vamos a ver uno por uno.</span></p>
+<p>&nbsp;</p>
+<p><b>→ Análisis de la visibilidad online</b></p>
+<p><span style="font-weight: 400;">En este apartado analizaremos el índice de visibilidad de nuestro proyecto y el de la competencia.</span></p>
+<p><span style="font-weight: 400;">Para ello podemos utilizar </span><b>Ahrefs</b><span style="font-weight: 400;"> y conocer de un simple vistazo cuál es el tráfico orgánico y el número de palabras clave posicionadas, así como su evolución.</span></p>
+<figure id="attachment_7216" aria-describedby="caption-attachment-7216" style="width: 720px" class="wp-caption aligncenter"><img class="size-full wp-image-7216" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20516'%3E%3C/svg%3E" alt="analisis pagina web" width="720" height="516" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-pagina-web.png" /><noscript><img class="size-full wp-image-7216" src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-pagina-web.png" alt="analisis pagina web" width="720" height="516" /></noscript><figcaption id="caption-attachment-7216" class="wp-caption-text">Analizando la visibilidad online de un proyecto con Ahrefs</figcaption></figure>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">De esta forma tan sencilla conoceremos cómo es nuestra visibilidad con respecto a la de </span><span style="font-weight: 400;">la competencia.</span></p>
+<p><span style="font-weight: 400;">También necesitamos conocer el </span><b>estado de indexabilidad</b><span style="font-weight: 400;"> del proyecto.</span></p>
+<p><span style="font-weight: 400;">La forma más sencilla es utilizar el siguiente comando en Google:</span></p>
+<p><em><span style="font-weight: 400;">site:”tudominio.com”</span></em></p>
+<p><span style="font-weight: 400;">Así podremos conocer todas las páginas indexadas para ese dominio y ver si hay alguna página indexada que no nos interesa.</span></p>
+<p>&nbsp;</p>
+<p><b>→ Análisis de los errores SEO</b></p>
+<p><span style="font-weight: 400;">El siguiente paso será conocer aquellos errores SEO que nos pueden penalizar de cara a Google y que nos están impidiendo posicionar y tener visibilidad orgánica.</span></p>
+<p><span style="font-weight: 400;">Para esto, </span><span style="font-weight: 400;">me gusta utilizar <b>XOVI</b> y su herramienta de SEO On Page.</span></p>
+<p>&nbsp;</p>
+<p><b>→ Análisis de palabras clave</b></p>
+<p><span style="font-weight: 400;">El siguiente paso será conocer <strong>por qué palabras clave estamos posicionados nosotros, por cuáles está posicionada la competencia</strong> y si estamos posicionados por keywords que no nos interesan.</span></p>
+<p><span style="font-weight: 400;">Para analizar bien este punto es fundamental que antes se haga un</span> <b>estudio de palabras clave</b><span style="font-weight: 400;">.</span></p>
+<p><b>¿Cómo encontrar las palabras clave por las que nos buscan?</b></p>
+<p><span style="font-weight: 400;">Podemos utilizar la </span><b>herramienta Search Console</b><span style="font-weight: 400;"> y seleccionar <em>→ Tráfico de búsqueda → Analítica de búsqueda</em> y hacer clic en </span><i><span style="font-weight: 400;">Clics</span></i><span style="font-weight: 400;">, </span><i><span style="font-weight: 400;">Impresiones</span></i><span style="font-weight: 400;">, </span><i><span style="font-weight: 400;">CTR</span></i><span style="font-weight: 400;"> y </span><i><span style="font-weight: 400;">Posición</span></i><span style="font-weight: 400;">.</span></p>
+<p><span style="font-weight: 400;">Así sabremos cómo nos buscan y en qué posición aparecemos para esas búsquedas.</span></p>
+<p><img class="size-full wp-image-7231 aligncenter" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20289'%3E%3C/svg%3E" alt="como saber las palabras por las que nos buscan en google" width="720" height="289" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/como-saber-las-palabras-por-las-que-nos-buscan-en-google.png" /><noscript><img class="size-full wp-image-7231 aligncenter" src="https://escuela.marketingandweb.es/wp-content/uploads/como-saber-las-palabras-por-las-que-nos-buscan-en-google.png" alt="como saber las palabras por las que nos buscan en google" width="720" height="289" /></noscript></p>
+<p>&nbsp;</p>
+<p>Además, <strong>si seleccionamos también la opción de páginas,</strong> podremos conocer de cada página en concreto, cuáles son las palabras por las que estamos recibiendo más visitas para poder optimizar tanto nuestros artículos como nuestras páginas de servicios o productos.</p>
+<p>Una herramienta que utilizo casi a diario para esto es <b>SEMrush, </b>y me gusta mucho función de análisis de brechas de palabras clave.</p>
+<p>&nbsp;</p>
+<p>→ <b>Análisis de los backlinks</b></p>
+<p>El último paso será el estado de enlaces externos, es decir, cuántos <strong>dominios de referencia </strong>enlazan, a qué páginas y de qué calidad son.</p>
+<p>Eso también tendrás que hacerlo tanto para el propio proyecto, como para la competencia.</p>
+<p>Puedes volver a utilizar Search Console y en el apartado <em>→ tráfico de búsqueda → enlaces a tu sitio</em>, encontrarás todos los enlaces que recibe tu dominio.</p>
+<p>Tendrás que analizar la calidad de esos enlaces y, los que puedan ser <b>enlaces tóxicos, </b>desautorizarlos.</p>
+<p>Mientras que en el caso de la competencia, lo que haremos es <b>analizar qué páginas son las que más enlaces reciben</b>, ver qué tipo de contenido es y de qué dominios proceden los enlaces.</p>
+<p>En este caso, utilizaremos <b>Ahrefs</b> y en el apartado pages seleccionaremos <em>«best by links».</em></p>
+
+<p>&nbsp;</p>
+<p><b><img class="size-full wp-image-15651 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3C/svg%3E" alt="Análisis Estrategia de Contenidos" width="64" height="64" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-estrategia-contenidos-1.png" /><noscript><img class="size-full wp-image-15651 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-estrategia-contenidos-1.png" alt="Análisis Estrategia de Contenidos" width="64" height="64" /></noscript>C) Análisis de la estrategia de contenidos</b></p>
+<p>Consiste en <strong>auditar los contenidos</strong> y determinar si los artículos posicionan en Google o si hay errores a corregir a nivel de SEO.</p>
+<p><span style="font-weight: 400;">Por ejemplo, algunas métricas en las que nos podemos fijar son:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuáles reciben más visitas y conversiones.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuáles más visitas pero menos conversiones.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuáles menos visitas pero más conversiones.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuáles consiguen más tiempo de permanencia.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuáles tienen un porcentaje de rebote mayor.</span></li>
+</ul>
+<p>Una forma sencilla de hacer una <b>auditoría de la estrategia de contenidos</b> es utilizar la herramienta<em> On Page SEO Checker de SEMrush.</em></p>
+<p>Esta función de SEMrush nos dará consejos basados en los 10 rivales mejor posicionados para una keyword y algunas recomendaciones técnicas.</p>
+
+<p>&nbsp;</p>
+<p>Mientras que para analizar la estrategia de la competencia, <strong>podemos utilizar tres herramientas</strong>: SEMrush, Buzzsumo y Ahrefs.</p>
+<p>Con <b>SEMrush</b> extraeremos los artículos de la competencia que más tráfico reciben y las palabras clave que posiciona.</p>
+<p>Solo tienes que introducir el dominio y en «Investigación Orgánica» seleccionar «Páginas».</p>
+
+<p>&nbsp;</p>
+<p>Con <b>Buzzsumo</b> puedes encontrar los contenidos más virales de la competencia, solo introduciendo el dominio del competidor.</p>
+<p>La herramienta muestra los posts con más engagement en Facebook, LinkedIn, Twitter y Pinterest.</p>
+<p>Estos mismos datos los podemos extraer también con Ahrefs, introduciendo el dominio y en «Page» seleccionaremos «Top Content».</p>
+
+<p>Si además, usamos la función «Best by links» o «Mejor por enlaces» también encontraremos los artículos de la competencia que más enlaces <em>dofollow</em> tienen.</p>
+<p>&nbsp;</p>
+<p><b><img class="size-full wp-image-15655 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3C/svg%3E" alt="Análisis competencia google adwords" width="64" height="64" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-competencia-google-adwords-1.png" /><noscript><img class="size-full wp-image-15655 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-competencia-google-adwords-1.png" alt="Análisis competencia google adwords" width="64" height="64" /></noscript>D) Análisis competencia Google Ads</b></p>
+<p>Es muy habitual que un plan de marketing digital incluya publicidad en Google Ads.</p>
+<p>Si ya te has anunciado antes, lo primero que debes hacer es una <strong>auditoría de las campañas realizadas y de la competencia</strong>.</p>
+<p>En nuestro proyecto utilizaremos la plataforma de Google Ads y Google Analytics para analizar:</p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">La calidad (Quality Score) del anuncio.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué páginas reciben más visitas de pago.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuál es la calidad de esas visitas (tiempo de permanencia y porcentaje de rebote)</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué páginas convierten mejor.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué palabras clave consiguen más conversiones.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuáles activan los anuncios.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué CTR tenemos.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuál es el CPC.</span></li>
+</ul>
+<p>Para analizar las <b>campañas de Google Ads de la competencia,</b> podemos utilizar Xovi y SEMrush.</p>
+<p><span style="font-weight: 400;">Con SEMrush podemos conocer de una forma muy visual:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">El título.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">El texto.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Las CTA que utiliza en los textos.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Las URL de cada uno de los anuncios.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Las palabras clave que activan el anuncio con el volumen de búsquedas y CPC.</span></li>
+</ul>
+<p>&nbsp;</p>
+<p><img class="size-full wp-image-7237 aligncenter" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20423'%3E%3C/svg%3E" alt="campanas google adwords competencia" width="720" height="423" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/campanas-google-adwords-competencia.png" /><noscript><img class="size-full wp-image-7237 aligncenter" src="https://escuela.marketingandweb.es/wp-content/uploads/campanas-google-adwords-competencia.png" alt="campanas google adwords competencia" width="720" height="423" /></noscript></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Mientras que con la herramienta Xovi podremos extraer:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Gasto estimado de cada mes.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuántos anuncios tienen activados al mes.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Los títulos y URL con más frecuencia utilizados.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Comparación de las campañas entre varios dominios.</span></li>
+</ul>
+<h4></h4>
+
+		
+<p>&nbsp;</p>
+<p><b><img class="size-full wp-image-15653 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3C/svg%3E" alt="Análisis Social Media" width="64" height="64" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-social-media-1.png" /><noscript><img class="size-full wp-image-15653 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-social-media-1.png" alt="Análisis Social Media" width="64" height="64" /></noscript>E) Análisis de redes sociales</b></p>
+<p>Otro de los puntos esenciales al crear un plan de marketing online son las redes sociales.</p>
+<p>Crear una estrategia de marketing en redes que atraiga tráfico, consiga engagement y permita fidelizar a los clientes, es muy beneficioso para cualquier profesional o empresa a largo plazo.</p>
+<p>Para ello, el siguiente paso será hacer una <b><FONT COLOR="red">auditoría de redes sociales</FONT></b> propias y de la competencia.</p>
+<p><span style="font-weight: 400;">Algunos de los datos que deberemos de extraer serán:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">En qué redes sociales está la competencia.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué tipo de contenido utilizan en cada red social.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué contenido genera más engagement.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué estrategias y acciones están llevando a cabo.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué tono utilizan en cada red social.</span></li>
+</ul>
+<p>&nbsp;</p>
+<div class="su-note"  style="border-color:#c7d3df;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;"><div class="su-note-inner su-u-clearfix su-u-trim" style="background-color:#E1EDF9;border-color:#ffffff;color:#333333;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;">Una vez tengamos claro contra qué marcas estamos compitiendo, lo que haremos es crear un cuadro con las redes sociales en las que tiene presencia cada competidor con su número de seguidores.</div></div>
+<p>Después analizaremos el rendimiento de las <b><FONT COLOR="red">estrategias de marketing en redes sociales</FONT></b> que ya se implementaron y conocer datos como:</p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Número y evolución de los seguidores.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Alcance de las publicaciones.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Engagement.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Tráfico web procedente de las redes sociales.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Conversiones procedentes de las redes sociales.</span></li>
+</ul>
+<h4></h4>
+<p><b><img class="size-full wp-image-15652 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3C/svg%3E" alt="Análisis Reputación Online" width="64" height="64" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-reputacion-online-1.png" /><noscript><img class="size-full wp-image-15652 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-reputacion-online-1.png" alt="Análisis Reputación Online" width="64" height="64" /></noscript>F) Análisis de la reputación online</b></p>
+<p>Todas las acciones que llevemos a cabo pueden tener una repercusión positiva, pero también negativa.</p>
+<p>Analizar cómo están afectando estas acciones a la <b><FONT COLOR="red">reputación online</FONT></b> de nuestra marca, será fundamental para saber qué se dice de nosotros.</p>
+<p>Para ello, es importante realizar un <b>proceso de escucha activa, </b>midiendo:</p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué personas o marcas nos nombran.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">En qué medio.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué tipo de comentario es.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuándo nos han mencionado.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué sentimiento tiene (positivo, negativo o neutro)</span></li>
+</ul>
+<p>Así, buscaremos posibles <b>comentarios negativos</b> que tiene nuestra marca con el objetivo de solucionarlos.</p>
+<h4></h4>
+<p><b><img class="size-full wp-image-15648 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3C/svg%3E" alt="Email Marketing" width="64" height="64" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/email-marketing-1.png" /><noscript><img class="size-full wp-image-15648 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/email-marketing-1.png" alt="Email Marketing" width="64" height="64" /></noscript>G) Análisis de la estrategia de email marketing</b></p>
+<p>Finalmente, el último paso de esta primera fase de análisis del plan de marketing digital, es analizar la <b>estrategia de email marketing</b>.</p>
+<p><span style="font-weight: 400;">Tendremos en cuenta los siguientes datos:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Tasa de aperturas (aquí también sabremos qué asuntos funcionan mejor)</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Tasa de clics en enlaces.</span></li>
+<li>Tasa de ventas.</li>
+<li>Tasa de desuscripciones.</li>
+<li style="font-weight: 400;">Ingreso medio por suscriptor.</li>
+</ul>
+<p><span style="font-weight: 400;">Mientras que <strong>para analizar a la competencia tendremos que hacerlo de forma más manual</strong>.</span></p>
+<p><span style="font-weight: 400;">Para esto, lo recomendable es abrirte una cuenta de correo que solo utilices para analizar la estrategia de email marketing de tu competencia y comprobar:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Días y horas que mandan los mails.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuántos emails mandan a la semana.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué tipos de asuntos emplean.</span></li>
+<li>Qué tipos de emails y promociones hacen.</li>
+</ul>
+<p><span style="font-weight: 400;">Y con esto ya finalizaríamos la parte de análisis del plan de marketing digital.</span></p>
+<p><span style="font-weight: 400;">Ahora tendremos que plasmar toda la información en un análisis DAFO que guíe nuestra estrategia digital.</span></p>
+<p>&nbsp;</p>
+<h4><b><img class="size-full wp-image-15637 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" alt="Mapa de Posicionamiento" width="100" height="100" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/4.mapa-de-posicionamiento-1.png" /><noscript><img class="size-full wp-image-15637 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/4.mapa-de-posicionamiento-1.png" alt="Mapa de Posicionamiento" width="100" height="100" /></noscript>3) Mapa de Posicionamiento</b></h4>
+<p>Primero nos situaremos en un mapa de posicionamiento.</p>
+<p>Por si no lo sabes, el <strong>mapa de posicionamiento</strong> es una herramienta que de una forma muy gráfica nos permitirá saber en qué posición estamos nosotros en relación a la competencia en función de dos variables.</p>
+<p>Tradicionalmente, las dos variables que se han utilizado son Calidad y <b><FONT COLOR="red">Precio</FONT></b>, pero esto lo puedes adaptar según tus objetivos y tu modelo de negocio.</p>
+<p>Aquí puedes ver un <strong>ejemplo de un mapa de posicionamiento</strong> para que lo veas más claro.</p>
+<p><img class="alignnone size-full wp-image-15638" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20955%20396'%3E%3C/svg%3E" alt="Ejemplo Mapa de Posicionamiento" width="955" height="396" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/ejemplo-mapa-posicionamiento.png" /><noscript><img class="alignnone size-full wp-image-15638" src="https://escuela.marketingandweb.es/wp-content/uploads/ejemplo-mapa-posicionamiento.png" alt="Ejemplo Mapa de Posicionamiento" width="955" height="396" /></noscript></p>
+<p>En este caso, he escogido como variables la «notoriedad de marca» y el «grado de especialización», y además del mapa actual, he creado un <strong>mapa de posicionamiento futuro</strong>.</p>
+<p>En este nuevo escenario nos fijaremos una meta,<strong> dónde nos gustaría vernos posicionados,</strong> para así definir las estrategias que necesitaremos.</p>
+<p>&nbsp;</p>
+<h4><strong><img class="size-full wp-image-15635 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" alt="Análisis DAFO" width="100" height="100" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/3.analisis-dafo-1.png" /><noscript><img class="size-full wp-image-15635 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/3.analisis-dafo-1.png" alt="Análisis DAFO" width="100" height="100" /></noscript>4) Análisis DAFO en Marketing Digital</strong></h4>
+<p>Una vez conozcamos en qué situación competitiva nos encontramos tenemos que hacer el <b><FONT COLOR="red">análisis DAFO</FONT></b> de tu proyecto.</p>
+<p>Para ello, tendremos que extraer las conclusiones que hemos obtenido de la auditoría interna y externa inicial.</p>
+<p>La matriz DAFO está formada por dos ejes, el eje interno (<b>fortalezas</b> y <b>debilidades</b>) y el eje externo (<b>oportunidades</b> y <b>amenazas</b>).</p>
+<p><img class="size-full wp-image-7323 aligncenter" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20525'%3E%3C/svg%3E" alt="analisis dafo marketing digital" width="720" height="525" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-dafo-marketing-digital.png" /><noscript><img class="size-full wp-image-7323 aligncenter" src="https://escuela.marketingandweb.es/wp-content/uploads/analisis-dafo-marketing-digital.png" alt="analisis dafo marketing digital" width="720" height="525" /></noscript></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Vamos a ver punto por punto.</span></p>
+<p><span style="font-weight: 400;">→ </span><b>Debilidades: </b>F<span style="font-weight: 400;">actores de nosotros mismos o nuestro negocio que impiden que se alcancen los objetivos de marketing.</span></p>
+<p><span style="font-weight: 400;">Por ejemplo:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">El tráfico orgánico es muy bajo. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Ausencia de una estrategia de contenidos.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Recursos limitados para invertir en herramientas.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Errores SEO.</span></li>
+</ul>
+<p><span style="font-weight: 400;">→ </span><b>Fortalezas</b><span style="font-weight: 400;">: Factores de nosotros mismos o nuestro negocio que nos favorecen en comparación a la competencia.</span></p>
+<p><span style="font-weight: 400;">Por ejemplo:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Servicio de atención al cliente con una satisfacción del 95%.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Estrategia de marketing en redes sociales efectiva.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Tasa de conversión en Adwords elevada.</span></li>
+</ul>
+<p><span style="font-weight: 400;">→ </span><b>Amenazas</b><span style="font-weight: 400;">: Factores que pueden afectar de forma negativa a tu plan de marketing online, pero que se escapan de tu control.</span></p>
+<p><span style="font-weight: 400;">Por ejemplo:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cambios en el EdgeRank de Facebook.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Acciones de la competencia online.</span></li>
+</ul>
+<p><span style="font-weight: 400;">→ </span><b>Oportunidades</b><span style="font-weight: 400;">: Justo lo contrario que las amenazas, ya que representan aquellos factores externos que nos pueden dar una ventaja competitiva.</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">La competencia no tiene una estrategia de contenidos en el blog.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Ha salido una nueva red social donde está nuestro público objetivo y la competencia no tiene presencia.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Ningún competidor está haciendo uso de los podcast.</span></li>
+</ul>
+<p>&nbsp;</p>
+<h4><b><img class="size-full wp-image-15639 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" alt="Definición del público objetivo" width="100" height="100" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/5.publico-objetivo-1.png" /><noscript><img class="size-full wp-image-15639 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/5.publico-objetivo-1.png" alt="Definición del público objetivo" width="100" height="100" /></noscript>5) Definición del público objetivo</b></h4>
+<p><span style="font-weight: 400;">Lo siguiente es determinar quién es el público objetivo al que nos vamos a dirigir en toda la estrategia.</span></p>
+<p><span style="font-weight: 400;">A quién vendemos, qué perfil reúne un potencial cliente al que le pueda interesar nuestro producto o servicio. </span></p>
+<p>Esta parte es FUNDAMENTAL, ya que si no lo definimos bien o no lo tenemos del todo claro, todo lo que hagamos a nivel de comunicación no estará bien enfocado.</p>
+<p>La audiencia no se identificará con nuestro mensaje y malgastaremos presupuesto en las campañas publicitarias, porque se mostrarán los anuncios a las personas equivocadas.</p>
+<p>Bien, dicho esto.</p>
+<p><span style="font-weight: 400;">Todas las estrategias que lleves a cabo deben de ir orientadas a tu <b><FONT COLOR="red">cliente ideal.</FONT></b></span></p>
+<p><span style="font-weight: 400;">Puedes tener un tipo de buyer persona o varios, pero sea lo que sea debes tener en cuenta estas</span><strong> cuatro variables:</strong></p>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Producto y/o servicio que queremos vender</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Perfil de cliente al que puede interesarle</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Contenidos relevantes para esa persona</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Puntos de dolor que tiene</span></li>
+</ol>
+<p><span style="font-weight: 400;">Para que lo entiendas mejor vamos a verlo con un ejemplo.</span></p>
+<p><img class="alignnone size-full wp-image-7327" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20391'%3E%3C/svg%3E" alt="buyer persona" width="720" height="391" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/buyer-persona.png" /><noscript><img class="alignnone size-full wp-image-7327" src="https://escuela.marketingandweb.es/wp-content/uploads/buyer-persona.png" alt="buyer persona" width="720" height="391" /></noscript></p>
+<p><span style="font-weight: 400;">Te pondré el ejemplo de la propia academia a la hora de vender el <strong>Máster de Marketing Digital.</strong></span></p>
+<p><span style="font-weight: 400;">El máster tiene diferentes tipos de posibles alumnos:</span></p>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Emprendedores</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Universitarios</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Desempleados</span></li>
+</ol>
+<p><span style="font-weight: 400;">Cada uno de ellos va a tener unos </span><b>pain points</b><span style="font-weight: 400;"> (puntos de dolor) y </span><b>motivaciones</b><span style="font-weight: 400;"> diferentes.</span></p>
+<div class="su-note"  style="border-color:#c7d3df;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;"><div class="su-note-inner su-u-clearfix su-u-trim" style="background-color:#E1EDF9;border-color:#ffffff;color:#333333;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;">Aquí la clave está en encontrar esos puntos de dolor y crear una estrategia de contenidos en torno a ellos, basándonos en un <strong>keyword research</strong>.</div></div>
+<p><span style="font-weight: 400;">Por ejemplo, en el caso de estos 3 buyer persona, sus puntos de dolor pueden ser:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Quieren emprender su propio proyecto pero no saben cómo hacerlo.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Buscan encontrar su primer trabajo o necesitan especializarse para encontrarlo.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Necesitan encontrar trabajo y de lo suyo es muy difícil, así que quieren reinventarse.</span></li>
+</ul>
+<p><span style="font-weight: 400;">En base a esto, haremos un <strong>keyword research</strong> para crear estrategias de contenidos enfocadas a esos puntos.</span></p>
+<p><span style="font-weight: 400;">Por ejemplo:</span></p>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">X ideas de negocios rentables para emprender por internet.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">«¿Qué hacer al terminar la universidad?» o </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cómo encontrar trabajo con un blog </span></li>
+</ol>
+<p>&nbsp;</p>
+<h4><b><img class="size-full wp-image-15640 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" alt="Recursos necesarios" width="100" height="100" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/6.recursos-necesarios-1.png" /><noscript><img class="size-full wp-image-15640 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/6.recursos-necesarios-1.png" alt="Recursos necesarios" width="100" height="100" /></noscript>6) Selección de los recursos necesarios</b></h4>
+<p><span style="font-weight: 400;">Una vez hemos completado toda la etapa de análisis del plan de marketing online, es hora de determinar <strong>qué recursos vamos a tener a nuestra disposición</strong>.</span></p>
+<p><span style="font-weight: 400;">¿De qué sirve crear las mejores estrategias si después no tendremos los suficientes recursos económicos o personal cualificado?</span></p>
+<p><span style="font-weight: 400;">Por lo tanto, <strong>aquí habrá que tener en cuenta</strong>:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué presupuesto estás dispuesto a invertir.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuántas personas van a formar parte del proyecto.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué herramientas vas a poder utilizar.</span></li>
+<li>Qué partes puedes externalizar.</li>
+<li>Qué partes vas a realizar tu.</li>
+</ul>
+<p>Teniendo claros los recursos, podremos determinar unos <strong>objetivos de marketing realistas</strong>.</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<h3><b>✅ Etapa 2 del plan de marketing: Objetivos</b></h3>
+<p><span style="font-weight: 400;">Segunda fase de este plan de marketing digital.</span></p>
+<p><span style="font-weight: 400;">Aquí definiremos los canales en los que se buscará tener presencia online con estrategia y los objetivos de marketing.</span></p>
+<p>&nbsp;</p>
+<h4><b><img class="size-full wp-image-15641 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" alt="Determinación de los canales" width="100" height="100" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/determinacion-canales-1.png" /><noscript><img class="size-full wp-image-15641 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/determinacion-canales-1.png" alt="Determinación de los canales" width="100" height="100" /></noscript>7) Elección de los canales</b></h4>
+<p><span style="font-weight: 400;">Un error que cometen muchos emprendedores y empresas es empezar el plan de marketing digital directamente por este punto.</span></p>
+<p><span style="font-weight: 400;">Es decir, sin un previo análisis deciden que:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Quieren hacer campañas de Google Ads.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Quieren anunciarse en Facebook Ads.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Quieren crear una comunidad en Instagram.</span></li>
+</ul>
+<p><span style="font-weight: 400;">Por poner ejemplos.</span></p>
+<p><span style="font-weight: 400;"> Pero de esta forma, solo perderán tiempo y dinero.</span></p>
+<p><span style="font-weight: 400;">El análisis que hemos hecho previamente es el que nos dirá en qué canales digitales nos interesa más tener presencia, según la competencia y según las preferencias del público objetivo.</span></p>
+<p><span style="font-weight: 400;">Por lo que aquí decidiremos si vamos a hacer campañas de:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Google Ads.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Social Ads.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Email Marketing.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Redes Sociales.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Estrategia SEO.</span></li>
+<li>Blogging.</li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Etc.</span></li>
+</ul>
+<p>&nbsp;</p>
+<h4><b><img class="size-full wp-image-15642 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" alt="Definición de objetivos" width="100" height="100" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/definicion-objetivos-1.png" /><noscript><img class="size-full wp-image-15642 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/definicion-objetivos-1.png" alt="Definición de objetivos" width="100" height="100" /></noscript>8) Determinación de los objetivos del plan de marketing digital</b></h4>
+<p><span style="font-weight: 400;">El siguiente paso será determinar los </span><b>objetivos de marketing </b><span style="font-weight: 400;">en función de nuestras metas.</span></p>
+<p><span style="font-weight: 400;">Algunos ejemplos que te sirvan de ayuda:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Incrementar el tráfico web.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Aumentar las interacciones en las publicaciones de redes sociales.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Aumentar la base de datos.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Incrementar el número de ventas.</span></li>
+</ul>
+<p><span style="font-weight: 400;">Independientemente de cuál sea tu meta, los objetivos de un plan de marketing deben ser <strong>SMART</strong>.</span></p>
+<ul>
+<li><b>S:</b><span style="font-weight: 400;"> (e</span><b>S</b><span style="font-weight: 400;">pecíficos)</span></li>
+<li><b>M: <span style="font-weight: 400;">(</span>M<span style="font-weight: 400;">edibles)</span></b></li>
+<li><b></b><strong>A</strong>: <span style="font-weight: 400;">(</span><strong>A</strong><span style="font-weight: 400;">lcanzables)</span></li>
+<li><strong>R</strong>: <span style="font-weight: 400;">(</span><strong>R</strong><span style="font-weight: 400;">elevantes)</span></li>
+<li><b></b><b></b><strong>T</strong>: <span style="font-weight: 400;">(</span><strong>T</strong><span style="font-weight: 400;">iempo)</span></li>
+</ul>
+<p><b> ➡ </b><b>Ejemplo de objetivo de marketing</b></p>
+<p><span style="font-weight: 400;">Un ejemplo de objetivo SMART para la Escuela:</span></p>
+<div class="su-note"  style="border-color:#c7d3df;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;"><div class="su-note-inner su-u-clearfix su-u-trim" style="background-color:#E1EDF9;border-color:#ffffff;color:#333333;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;">Incrementar (<strong>accionable</strong>) en un 15% (<strong>medible</strong>) el número de plazas para el Master de Marketing Digital (<strong>específico</strong>) a través del tráfico orgánico (<strong>cómo se va a hacer</strong>) en los próximos 9 meses (<strong>tiempo</strong>).</div></div>
+<p>&nbsp;</p>
+<h3><b>✅ Etapa 3 del plan de marketing: Estrategias</b></h3>
+<p><span style="font-weight: 400;">Ya conocemos la situación del proyecto, qué canales vamos a utilizar y los objetivos de marketing que queremos alcanzar.</span></p>
+<p>El siguiente paso es definir las estrategias y acciones:</p>
+<p>&nbsp;</p>
+<h4><b><img class="size-full wp-image-15643 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" alt="Orientación Estratégica empresa" width="100" height="100" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/orientacion-estrategica-empresa-1.png" /><noscript><img class="size-full wp-image-15643 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/orientacion-estrategica-empresa-1.png" alt="Orientación Estratégica empresa" width="100" height="100" /></noscript>9) Orientación estratégica y ventaja competitiva</b></h4>
+<p>Pero antes de nada, debemos saber <strong>cuál es la ventaja competitiva de nuestra empresa</strong>.</p>
+<p>Si has definido tu Modelo Canvas (como te he dicho en el punto 1), tendrás clara <strong>cuál es tu propuesta de valor</strong>.</p>
+<p>Esta propuesta es lo que puede marcar tu ventaja competitiva en tu mercado y enfocarás tu mensaje en ella para sacarla a relucir.</p>
+<p>Por ello es importante que te pares a pensar <strong>cuáles son los beneficios que van a conseguir tus clientes</strong> al utilizar tus productos y/o servicios, más allá de las características.</p>
+<p>&nbsp;</p>
+<h4><b><img class="size-full wp-image-15644 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" alt="Estrategias de Marketing" width="100" height="100" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/estrategias-de-marketing-1.png" /><noscript><img class="size-full wp-image-15644 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/estrategias-de-marketing-1.png" alt="Estrategias de Marketing" width="100" height="100" /></noscript>10) Estrategias que puedes usar en tu plan de marketing digital</b></h4>
+<p><span style="font-weight: 400;">Existen </span>diferentes <b><FONT COLOR="red">tipos de estrategias</FONT></b> <span style="font-weight: 400;">y la elección de ellas dependerá de:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">La meta de la empresa.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">El análisis DAFO previamente hecho.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Los objetivos de marketing.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Los canales que hayamos seleccionado.</span></li>
+</ul>
+<p><span style="font-weight: 400;">Vamos a ponernos en situación.</span></p>
+<p><span style="font-weight: 400;">Para que lo veas más claro, veamos el ejemplo de la Escuela.</span></p>
+<p><span style="font-weight: 400;">Imagina que su </span><b>meta</b><span style="font-weight: 400;"> es conseguir llenar las plazas del curso y que el </span><b>objetivo</b><span style="font-weight: 400;"> es incrementar en un 15% las plazas.</span></p>
+<p><span style="font-weight: 400;">Si lo recuerdas, en el </span><b>ejemplo de análisis DAFO</b><span style="font-weight: 400;"> que hemos hecho antes una de las debilidades es que la empresa tiene poco tráfico orgánico y que carece de una estrategia de contenidos.</span></p>
+<p><span style="font-weight: 400;">Por lo que llegaríamos a la conclusión de que es interesante </span><b>crear una estrategia de contenidos en el blog</b><span style="font-weight: 400;"> que atraiga tráfico web a nuestra página.</span></p>
+<p>¿Entiendes la idea?</p>
+<p><span style="font-weight: 400;">Más ejemplos para que te quede claro <strong>cómo </strong></span><strong>estructurar tu plan de marketing online.</strong></p>
+<p>&nbsp;</p>
+
+<p><b>Meta: </b><span style="font-weight: 400;">Conseguir llenar las plazas del Master.</span></p>
+<p><b>Objetivo:</b><span style="font-weight: 400;"> Incrementar en un 15% el número de plazas para el Master de Marketing Digital a través de la página web en los próximos 9 meses.</span></p>
+<p><b>Estrategias y acciones</b><span style="font-weight: 400;"> para conseguir incrementar el número de alumnos:</span></p>
+<p><span style="font-weight: 400;">A) <strong>Estrategia de contenidos </strong></span></p>
+<ul>
+<li><span style="font-weight: 400;">Creación de un calendario editorial.</span></li>
+<li><span style="font-weight: 400;">Publicar artículos de invitado para ganar visibilidad y captar más suscriptores.</span></li>
+<li><span style="font-weight: 400;">Creación de contenido descargable (lead magnets) para que nos dejen su email a cambio.</span></li>
+</ul>
+<p>B) <strong>Estrategia de social media</strong></p>
+<ul>
+<li><span style="font-weight: 400;">Creación de campañas de Social Ads.</span></li>
+<li><span style="font-weight: 400;">Creación de concursos en redes sociales.</span></li>
+<li><span style="font-weight: 400;">Creación de píldoras formativas a través de vídeos en directo.</span></li>
+</ul>
+<p>C) <strong>Estrategia SEO</strong></p>
+<ul>
+<li><span style="font-weight: 400;">Estudio de palabras clave.</span></li>
+<li><span style="font-weight: 400;">Optimización de los artículos para SEO.</span></li>
+<li><span style="font-weight: 400;">Guest Post para conseguir enlaces de calidad.</span></li>
+</ul>
+<p>D) <strong>Estrategia de Email Marketing</strong></p>
+<ul>
+<li><span style="font-weight: 400;">Creación de formularios de registro.</span></li>
+<li><span style="font-weight: 400;">Creación de una secuencia automatizada de emails.</span></li>
+<li><span style="font-weight: 400;">Envío de Newsletters con frecuencia alta.</span></li>
+</ul>
+<p>F) <strong>Estrategia en Google Ads</strong></p>
+<ul>
+<li><span style="font-weight: 400;">Creación de anuncios.</span></li>
+<li><span style="font-weight: 400;">Creación de las páginas de destino (captación y venta)</span></li>
+</ul>
+<p>Y una vez creadas las estrategias, deberemos de ejecutarlas en un plazo de tiempo determinado.</p>
+<p>&nbsp;</p>
+<h3><b>Etapa 4 del plan de marketing: Plan de acción</b></h3>
+<p><span style="font-weight: 400;">Es el momento de ejecutar el plan de marketing digital.</span></p>
+<p><span style="font-weight: 400;">Para ello necesitaremos un </span><b>plan de acciones de marketing digital </b><span style="font-weight: 400;">que irán recogidas en un calendario editorial y en un diagrama de GANTT.</span></p>
+<p>&nbsp;</p>
+<h4><b><img class="size-full wp-image-15645 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" alt="Tareas" width="100" height="100" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/tareas-1.png" /><noscript><img class="size-full wp-image-15645 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/tareas-1.png" alt="Tareas" width="100" height="100" /></noscript>11) Road Map y Timming (Calendario)</b></h4>
+<p>Gracias al <b><FONT COLOR="red">calendario editorial </FONT></b>sabremos qué, cuándo, cómo y dónde debemos de llevar a cabo nuestras acciones.</p>
+<p>Es decir, tendremos controlada nuestra estrategia de contenidos en el blog y nuestro calendario de acciones en redes sociales.</p>
+<p>Mientras que con el <strong>calendario GANTT</strong> podremos ver qué acciones haremos cada semana para organizarnos.</p>
+<p>Aquí tienes un ejemplo de calendario GANTT para poder organizar tu tiempo y determinar si eres realmente capaz de cumplir todas las acciones del plan de marketing digital que te has estado fijando.</p>
+<p><img class="size-full wp-image-7304 aligncenter" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20390'%3E%3C/svg%3E" alt="calendario gantt" width="720" height="390" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/calendario-gantt.png" /><noscript><img class="size-full wp-image-7304 aligncenter" src="https://escuela.marketingandweb.es/wp-content/uploads/calendario-gantt.png" alt="calendario gantt" width="720" height="390" /></noscript></p>
+<p>&nbsp;</p>
+<h3><b>Etapa 5 del plan de marketing: Medición</b></h3>
+<p>La última parte del plan de marketing digital y una de las más importantes es la etapa de medición.</p>
+<p>Aquí podremos ver si nuestro plan de marketing está teniendo un rendimiento positivo y genera resultados.</p>
+<p>Si no lo conoces, este concepto se llama <b><FONT COLOR="red">Roi en marketing</FONT></b>,  y consiste en medir el rendimiento de las acciones para ver si están ayudando en la consecución de los objetivos.</p>
+<p><span style="font-weight: 400;">Todo lo que no se mide no se puede mejorar, por lo que es fundamental utilizar herramientas de analítica web para esto.</span></p>
+<p><span style="font-weight: 400;">Aquí tendrán un papel muy importante los <strong>Indicadores Clave de Desempeño</strong> (también conocidos como KPIs).</span></p>
+<p>&nbsp;</p>
+<h4><b><img class="size-full wp-image-15646 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" alt="Medición Plan de Marketing" width="100" height="100" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/medicion-plan-de-marketing-1.png" /><noscript><img class="size-full wp-image-15646 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/medicion-plan-de-marketing-1.png" alt="Medición Plan de Marketing" width="100" height="100" /></noscript>12) Control y definición de los KPIs</b></h4>
+<p>El siguiente paso será por lo tanto establecer los <b><FONT COLOR="red"> KPI del plan de marketing online</FONT>.</b></p>
+<p>Ante todo, debes de saber que todos los KPI son métricas, pero no todas las métricas son KPI.</p>
+<p><span style="font-weight: 400;">Por lo que es esencial conocer </span><b>qué métricas del plan de marketing digital</b><span style="font-weight: 400;"> son las que de verdad favorecen los objetivos.</span></p>
+<p><span style="font-weight: 400;">Daremos prioridad a estas métricas y les haremos un seguimiento periódico.</span></p>
+<div class="su-note"  style="border-color:#c7d3df;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;"><div class="su-note-inner su-u-clearfix su-u-trim" style="background-color:#E1EDF9;border-color:#ffffff;color:#333333;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;"><p>Lo ideal es que te fijes un máximo de 10 &#8211; 12 indicadores, para no agobiarte con tantos datos.</p>
+<p>Y por supuesto debes escogerlos en función de tus objetivos.</div></div>
+<p><span style="font-weight: 400;">Me explico.</span></p>
+<p><span style="font-weight: 400;">Continuando con el mismo ejemplo que antes, el objetivo era conseguir alumnos a través de la página web.</span></p>
+<p><span style="font-weight: 400;">¿Qué métricas van a influir de forma directa en este objetivo?</span></p>
+<p><img class="alignnone size-full wp-image-7303" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20450'%3E%3C/svg%3E" alt="principales kpi en marketing" width="720" height="450" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/principales-kpi-en-marketing.jpg" /><noscript><img class="alignnone size-full wp-image-7303" src="https://escuela.marketingandweb.es/wp-content/uploads/principales-kpi-en-marketing.jpg" alt="principales kpi en marketing" width="720" height="450" /></noscript></p>
+<p><span style="font-weight: 400;">👉 En la primera <strong>fase de atracción</strong> de visitas a la web, el objetivo será </span>que nos encuentren.</p>
+<p><span style="font-weight: 400;">Y por lo tanto el </span>KPI será el <strong>número de</strong><b> visitas</b><span style="font-weight: 400;"> las diferentes fuentes de tráfico.</span></p>
+<p><span style="font-weight: 400;">👉 En la </span><b>fase de consideración,</b><span style="font-weight: 400;"> buscaremos que esos visitantes nos tengan en cuenta como una de las mejores opciones para cubrir sus necesidades, por lo que podemos medirlo gracias a la calidad de las visitas y a que nos dejen su email para seguir comunicándonos por este canal.</span></p>
+<p>El KPI entonces será la tasa de conversión de la página de registro o número de nuevos suscriptores.</p>
+<p><span style="font-weight: 400;">👉 Finalmente, el objetivo de conseguir más alumnos pertenece a la </span><b>etapa de decisión.</b></p>
+<p><span style="font-weight: 400;">Y la forma de medirlo es principalmente gracias a la tasa de conversión o venta.</span></p>
+<p><span style="font-weight: 400;">👉 Si uno de nuestros objetivos también fuera fidelizar a los clientes, esto pertenecería a la </span><b>etapa de retención.</b></p>
+<p><span style="font-weight: 400;">Y los KPI en este caso podrían estar formados por el % de repetición de compras y el nivel de engagement de los alumnos.</span></p>
+<p><span style="font-weight: 400;">Eso sí, <strong>una cosa te tiene que quedar clara.</strong></span></p>
+<div class="su-note"  style="border-color:#c7d3df;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;"><div class="su-note-inner su-u-clearfix su-u-trim" style="background-color:#E1EDF9;border-color:#ffffff;color:#333333;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;">El haber creado los principales KPI no significa que tengas que dejar de lado el resto de métricas.</p>
+<p>También tendrás que tenerlas en cuenta de vez en cuando, porque si un día cambian tus objetivos, es posible que también lo hagan los KPIs más importantes para tu negocio.</div></div>
+<p>&nbsp;</p>
+<h4><img class="size-full wp-image-15647 alignleft" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3C/svg%3E" alt="Plan de Contingencia" width="100" height="100" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/plan-de-contingencia-1.png" /><noscript><img class="size-full wp-image-15647 alignleft" src="https://escuela.marketingandweb.es/wp-content/uploads/plan-de-contingencia-1.png" alt="Plan de Contingencia" width="100" height="100" /></noscript><strong>13) Cuadro de Mandos y Plan de Contingencia</strong></h4>
+<p>Finalmente, lo que haremos es crear el cuadro de mandos del plan de marketing digital, donde podremos <strong>ver de forma visual si estamos alcanzando los resultados</strong> que tenemos en mente.</p>
+<p>De esta forma, crearemos un plan de emergencia (plan de contingencia) por si no se están cumpliendo con los objetivos marcados.</p>
+<p>Lo habitual es crear <strong>tres posibles escenarios</strong>:</p>
+<ul>
+<li>Escenario optimista.</li>
+<li>Escenario realista.</li>
+<li>Escenario pesimista.</li>
+</ul>
+<p>Vamos a ver un ejemplo para que te quede mucho más claro:</p>
+<p><img class="size-full wp-image-7328 aligncenter" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20521'%3E%3C/svg%3E" alt="cuadro de mandos plan de marketing digital" width="720" height="521" data-lazy-src="https://escuela.marketingandweb.es/wp-content/uploads/cuadro-de-mandos-plan-de-marketing.png" /><noscript><img class="size-full wp-image-7328 aligncenter" src="https://escuela.marketingandweb.es/wp-content/uploads/cuadro-de-mandos-plan-de-marketing.png" alt="cuadro de mandos plan de marketing digital" width="720" height="521" /></noscript></p>
+<p>&nbsp;</p>
+<p>Es muy sencillo:</p>
+<p>✅ Si nos encontramos en el <strong>primer cuadrante </strong>durante el periodo de tiempo seleccionado, es que estaremos alcanzando el objetivo y no habrá que tomar medidas.</p>
+<p>⚠️ Pero si nos encontramos en el <strong>segundo cuadrante</strong>, significará que no es así y que deberemos tomar algunas medidas que determinemos en ese plan de contingencia para intentar remontar las estrategias.</p>
+<p>❌ En el <strong>tercer cuadrante</strong> estaríamos muy lejos de alcanzar el objetivo, y entonces habría que hacer una auditoría y una revisión de la estrategia para ver de forma detallada qué está fallando y en base a eso actuar.</p>
+<p>&nbsp;</p>
+<h3><b>Etapa 6 del plan de marketing: Presupuesto</b></h3>
+<p>Finalmente, el <b>presupuesto del plan de marketing</b><span style="font-weight: 400;">.</span></p>
+<p><span style="font-weight: 400;">Si te fijas, en la primera etapa del plan de marketing ya hicimos alusión al presupuesto.</span></p>
+<p><span style="font-weight: 400;">Hacíamos referencia a todos los recursos con los que que podíamos contar para la estrategia y el presupuesto era uno de ellos que debíamos tener en cuenta.</span></p>
+<p><span style="font-weight: 400;">Sin embargo, es ahora que ya sabemos lo que vamos a hacer, que podemos contabilizar cuánto nos va a costar el plan de marketing digital.</span></p>
+<p>Este presupuesto que haremos será a un año vista.</p>
+<p><span style="font-weight: 400;">Y aquí <strong>no hay ninguna fórmula mágica.</strong></span></p>
+<p><span style="font-weight: 400;">Los factores que debes de tener en cuenta son:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Las herramientas que vamos a necesitar.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Qué personal será necesario, cuántas horas van a trabajar y a qué coste. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuál va a ser el plazo de ejecución del plan de marketing online.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Cuál va a ser la inversión en publicidad.</span></li>
+</ul>
+<p>&nbsp;</p>
+<h2><b>Consejos finales para hacer un plan de marketing online rentable</b></h2>
+<p><span style="font-weight: 400;">Y ahora sí, para terminar voy a darte unas últimas recomendaciones para que no te quepa duda de cómo hacer un buen plan de marketing digital.</span></p>
+<p><span style="font-weight: 400;">👉 1. Dedícale una parte importante de tu tiempo a la <strong>fase de análisis</strong>, de ahí sacarás todos los elementos necesarios para construir la estrategia.</span></p>
+<p><span style="font-weight: 400;">👉2. No escatimes en tiempo a la hora de <strong>analizar</strong> a tu competencia, sobre todo para encontrar oportunidades de sacarle ventaja con estrategias que no estén implementando.</span></p>
+<p><span style="font-weight: 400;">👉 3. Lo que mejor le funciona a la competencia no tiene por qué funcionarte a ti también, <strong>inspírate</strong> pero no te dejes guiar únicamente por lo que ellos hagan. Al final, tienes que pensar en dónde está tu público objetivo y qué necesidades tiene.</span></p>
+<p><span style="font-weight: 400;">👉 4. La <strong>clave</strong> está en aprovechar las oportunidades y fortalezas y prevenir las amenazas y debilidades.</span></p>
+<p><span style="font-weight: 400;">👉 5. Las amenazas debes de tratar de convertirlas en oportunidades para <strong>mejorar tu situación competitiva</strong>.</span></p>
+<p><span style="font-weight: 400;">👉 6. Recuerda que todas las acciones que lleves a cabo deben de ir orientadas a alcanzar la <strong>meta final</strong> de la empresa, no pierdas el tiempo en cosas que no te generarán rentabilidad a corto, medio ni largo plazo.</span></p>
+<p><span style="font-weight: 400;">👉 7. Dedica <strong>una semana</strong> todos los meses a analizar métricas y aplicar mejoras.</span></p>
+<p>👉 8. Importante: El plan de marketing digital <strong>no es algo rígido</strong> ni para siempre.</p>
+<div class="su-note"  style="border-color:#c7d3df;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;"><div class="su-note-inner su-u-clearfix su-u-trim" style="background-color:#E1EDF9;border-color:#ffffff;color:#333333;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;">Si hay grandes cambios en tu negocio, tendrás que rehacer muchas cosas. De hecho, el plan de marketing <strong>suele hacerse con una visión a 2 años vista</strong>, y es una tarea que nunca debe dejar de hacerse para poder escalar el negocio a largo plazo.</div></div>
+<p>&nbsp;</p>
+<h2><strong>¿Te ha quedado claro cómo hacer un Plan de Marketing Digital al completo?</strong></h2>
+<p>Espero que la información de este contenido te haya resultado útil y hayas entendido todos los pasos para elaborar tu plan de marketing digital, y te sea de un gran éxito</p>
+<p>Para ti Con todo el cariño del mundo Alvaro Leonardo Hernández Blanco.</p>
+
+		
+							</div>
+		
+		
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+    (function(e,t,o,n,p,r,i){e.visitorGlobalObjectAlias=n;e[e.visitorGlobalObjectAlias]=e[e.visitorGlobalObjectAlias]||function(){(e[e.visitorGlobalObjectAlias].q=e[e.visitorGlobalObjectAlias].q||[]).push(arguments)};e[e.visitorGlobalObjectAlias].l=(new Date).getTime();r=t.createElement("script");r.src=o;r.async=true;i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)})(window,document,"https://diffuser-cdn.app-us1.com/diffuser/diffuser.js","vgo");
+    vgo('setAccount', '475295017');
+    vgo('setTrackByDefault', true);
+
+    vgo('process');
+</script>
+
+		
+				
+
+				
+			
+					</div>
+
+		
+
+
+	
+</div>
+
+</div>
+				
+
+<link rel='stylesheet' id='elementor-post-20927-css'  href='https://escuela.marketingandweb.es/wp-content/uploads/elementor/css/post-20927.css?ver=1669113053' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='su-shortcodes-css'  href='https://escuela.marketingandweb.es/wp-content/cache/min/1/wp-content/plugins/shortcodes-ultimate/includes/css/shortcodes.css?ver=1669186934' type='text/css' media='all' />
+
+<script data-minify="1" type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/cache/min/1/wp-content/plugins/dynamicconditions/Public/js/dynamic-conditions-public.js?ver=1669186931' id='dynamic-conditions-js' defer></script>
+<script data-minify="1" type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/cache/min/1/wp-content/plugins/honeypot-antispam/js/honeypot-antispam.js?ver=1669186934' id='honeypot-antispam-script-js' defer></script>
+<script data-minify="1" type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/cache/min/1/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-form-move-tracker.js?ver=1669186931' id='gtm4wp-form-move-tracker-js' defer></script>
+<script type='text/javascript' id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-extra'>
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/wp-admin\/|\/logout\/|\/wp-login.php|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/escuela.marketingandweb.es","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type='text/javascript' id='joinchat-lite-js-extra'>
+/* <![CDATA[ */
+var joinchat_obj = {"settings":{"telephone":"34660898091","whatsapp_web":false,"message_send":""}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/plugins/creame-whatsapp-me/public/js/joinchat-lite.min.js?ver=4.5.6' id='joinchat-lite-js' defer></script>
+<script type='text/javascript' id='cmplz-cookiebanner-js-extra'>
+/* <![CDATA[ */
+var complianz = {"prefix":"cmplz_","user_banner_id":"1","set_cookies":[],"block_ajax_content":"","banner_version":"26","version":"6.2.0","store_consent":"","do_not_track":"","consenttype":"optin","region":"eu","geoip":"","dismiss_timeout":"","disable_cookiebanner":"","soft_cookiewall":"","dismiss_on_scroll":"","cookie_expiry":"365","url":"https:\/\/escuela.marketingandweb.es\/wp-json\/complianz\/v1\/","locale":"lang=es&locale=es_ES","set_cookies_on_root":"","cookie_domain":"","current_policy_id":"20","cookie_path":"\/","categories":{"statistics":"estad\u00edsticas","marketing":"m\u00e1rketing"},"tcf_active":"","placeholdertext":"Haz clic para aceptar las cookies de {category} y permitir este contenido","css_file":"https:\/\/escuela.marketingandweb.es\/wp-content\/uploads\/complianz\/css\/banner-{banner_id}-{type}.css?v=26","page_links":{"eu":{"cookie-statement":{"title":"Pol\u00edtica de Cookies","url":"https:\/\/escuela.marketingandweb.es\/politica-de-cookies\/"},"privacy-statement":{"title":"Pol\u00edtica de privacidad","url":"https:\/\/escuela.marketingandweb.es\/politica-privacidad\/"}}},"tm_categories":"","forceEnableStats":"","preview":"","clean_cookies":""};
+/* ]]> */
+</script>
+<script defer type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/plugins/complianz-gdpr/cookiebanner/js/complianz.min.js?ver=6.2.0' id='cmplz-cookiebanner-js'></script>
+<script defer type='text/javascript' id='cmplz-cookiebanner-js-after'>
+		
+			document.addEventListener("cmplz_enable_category", function(consentData) {
+				var category = consentData.detail.category;
+				var services = consentData.detail.services;
+				var blockedContentContainers = [];
+				let selectorVideo = '.elementor-widget-video[data-category="'+category+'"]';
+				let selectorGeneric = '[data-cmplz-elementor-href][data-category="'+category+'"]';
+				for (var skey in services) {
+					if (services.hasOwnProperty(skey)) {
+						let service = skey;
+						selectorVideo +=',.elementor-widget-video[data-service="'+service+'"]';
+						selectorGeneric +=',[data-cmplz-elementor-href][data-service="'+service+'"]';
+					}
+				}
+
+				document.querySelectorAll(selectorVideo).forEach(obj => {
+					let elementService = obj.getAttribute('data-service');
+					if ( cmplz_is_service_denied(elementService) ) {
+						return;
+					}
+					if (obj.classList.contains('cmplz-elementor-activated')) return;
+					obj.classList.add('cmplz-elementor-activated');
+					obj.setAttribute('data-settings', obj.getAttribute('data-cmplz-elementor-settings'));
+					blockedContentContainers.push(obj);
+				});
+
+				document.querySelectorAll(selectorGeneric).forEach(obj => {
+					let elementService = obj.getAttribute('data-service');
+					if ( cmplz_is_service_denied(elementService) ) {
+						return;
+					}
+					if (obj.classList.contains('cmplz-elementor-activated')) return;
+
+					if (obj.classList.contains('cmplz-fb-video')) {
+						obj.classList.remove('cmplz-fb-video');
+						obj.classList.add('fb-video');
+					}
+
+					obj.classList.add('cmplz-elementor-activated');
+					obj.setAttribute('data-href', obj.getAttribute('data-cmplz-elementor-href'));
+					blockedContentContainers.push(obj.closest('.elementor-widget'));
+				});
+
+				/**
+				 * Trigger the widgets in Elementor
+				 */
+				for (var key in blockedContentContainers) {
+					if (blockedContentContainers.hasOwnProperty(key) && blockedContentContainers[key] !== undefined) {
+						let blockedContentContainer = blockedContentContainers[key];
+						if (elementorFrontend.elementsHandler) {
+							elementorFrontend.elementsHandler.runReadyTrigger(blockedContentContainer)
+						}
+						var cssIndex = blockedContentContainer.getAttribute('data-placeholder_class_index');
+						blockedContentContainer.classList.remove('cmplz-blocked-content-container');
+						blockedContentContainer.classList.remove('cmplz-placeholder-' + cssIndex);
+					}
+				}
+
+			});
+		
+		
+</script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/plugins/complianz-gdpr/cookiebanner/js/migrate.min.js?ver=6.2.0' id='cmplz-migrate-js' defer></script>
+<script data-minify="1" type='text/javascript' data-cfasync="false" data-no-optimize="1" src='https://escuela.marketingandweb.es/wp-content/cache/min/1/wp-content/plugins/perfmatters/vendor/instant-page/instantpage.js?ver=1669186931' id='perfmatters-instant-page-js' defer></script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.0.1' id='smartmenus-js' defer></script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-includes/js/comment-reply.min.js?ver=6.0' id='comment-reply-js' defer></script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.7.2' id='elementor-pro-webpack-runtime-js' defer></script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.6.6' id='elementor-webpack-runtime-js' defer></script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.6.6' id='elementor-frontend-modules-js' defer></script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9' id='regenerator-runtime-js' defer></script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-includes/js/dist/hooks.min.js?ver=c6d64f2cb8f5c6bb49caca37f8828ce3' id='wp-hooks-js'></script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-includes/js/dist/i18n.min.js?ver=ebee46757c6a411e38fd079a7ac71d94' id='wp-i18n-js'></script>
+<script type='text/javascript' id='wp-i18n-js-after'>
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script type='text/javascript' id='elementor-pro-frontend-js-before'>
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/escuela.marketingandweb.es\/wp-admin\/admin-ajax.php","nonce":"992c2a8904","urls":{"assets":"https:\/\/escuela.marketingandweb.es\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/escuela.marketingandweb.es\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"es_ES","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/escuela.marketingandweb.es\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.7.2' id='elementor-pro-frontend-js' defer></script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2' id='elementor-waypoints-js' defer></script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-includes/js/jquery/ui/core.min.js?ver=1.13.1' id='jquery-ui-core-js' defer></script>
+<script type='text/javascript' id='elementor-frontend-js-before'>
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Compartir en Facebook","shareOnTwitter":"Compartir en Twitter","pinIt":"Pinear","download":"Descargar","downloadImage":"Descargar imagen","fullscreen":"Pantalla completa","zoom":"Zoom","share":"Compartir","playVideo":"Reproducir v\u00eddeo","previous":"Anterior","next":"Siguiente","close":"Cerrar"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"M\u00f3vil","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"M\u00f3vil grande","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tableta","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tableta grande","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Port\u00e1til","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Pantalla grande","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.6.6","is_static":false,"experimentalFeatures":{"e_dom_optimization":true,"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"a11y_improvements":true,"e_hidden_wordpress_widgets":true,"container":true},"urls":{"assets":"https:\/\/escuela.marketingandweb.es\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":7212,"title":"%C2%BFC%C3%B3mo%20hacer%20un%20Plan%20de%20Marketing%20Digital%20completo%3F%20%5BEJEMPLOS%5D","excerpt":"","featuredImage":"https:\/\/escuela.marketingandweb.es\/wp-content\/uploads\/como-hacer-un-plan-de-marketing-digital.png"}};
+</script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.6.6' id='elementor-frontend-js' defer></script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.7.2' id='pro-elements-handlers-js' defer></script>
+<script type='text/javascript' src='https://escuela.marketingandweb.es/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.7.2' id='e-sticky-js' defer></script>
+				<script type="text/plain" data-service="google-analytics" async data-category="statistics" src="https://www.googletagmanager.com/gtag/js?id=UA-97341711-1"></script><script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://escuela.marketingandweb.es/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script></body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1669892629 -->
